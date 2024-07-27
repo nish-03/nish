@@ -470,7 +470,15 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 
-
+			<script>
+			  window.onload = function() {
+				// Set a delay for how long the loader should be visible
+				setTimeout(function() {
+				  document.getElementById('loader').style.display = 'none';
+				  document.getElementById('content').style.display = 'block';
+				}, 3000); // Adjust this value to the desired duration (3000 ms = 3 seconds)
+			  };
+			</script>
 
 
 	</body>
