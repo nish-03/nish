@@ -1676,23 +1676,22 @@ input, select, textarea {
 /* Loader styles */
 #loader {
   position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 9999;
-  background: rgba(255, 255, 255, 0.8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px; /* Adjust as needed */
+  height: 100px; /* Adjust as needed */
+  text-align: center; /* Center align text */
+  z-index: 1000; /* Ensure loader is above other content */
 }
 
 .pulse {
   width: 60px;
   height: 60px;
   background-color: #3498db;
-  border-radius: 80%;
-  animation: pulse 1s infinite;
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+  margin: 0 auto; /* Center the pulse animation */
 }
 
 @keyframes pulse {
@@ -1708,4 +1707,19 @@ input, select, textarea {
     transform: scale(0.7);
     opacity: 0.7;
   }
+}
+
+
+#loading-message {
+  margin-top: 10px; /* Space between the pulse and the message */
+  color: #FFFFFF; /* Adjust text color as needed */
+  font-size: 32px; /* Adjust font size as needed */
+  font-weight: bold; /* Optional: Make the text bold */
+  opacity: 1;
+  transition: opacity 0.5s ease-out;
+}
+
+/* Optional: Adding a fade transition effect */
+#loader {
+  transition: opacity 0.5s ease-out;
 }
