@@ -1692,7 +1692,7 @@ input, select, textarea {
   height: 60px;
   background-color: #3498db;
   border-radius: 80%;
-  animation: pulse 2s infinite;
+  animation: pulse 1s infinite;
 }
 
 @keyframes pulse {
