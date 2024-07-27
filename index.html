@@ -18,6 +18,11 @@
 	</head>
 	<body class="is-preload">
 
+			<div id="loader">
+		    	<div class="pulse"></div>
+		  	</div>
+
+
 		<!-- Wrapper -->
 			<div id="wrapper">
 
@@ -464,6 +469,14 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+
+			<script>
+			  window.onload = function() {
+			    document.getElementById('loader').style.display = 'none';
+			    document.getElementById('content').style.display = 'block';
+			  };
+			</script>
 
 	</body>
 </html>
