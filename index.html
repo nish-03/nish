@@ -652,6 +652,14 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
+        
+    <script>        
+        // Hide loader and fetch stats
+        window.addEventListener('load', function() {
+            document.getElementById('loader').style.display = 'none';
+            fetchScholarStats();
+        });
+    </script>
 
 </body>
 </html>
