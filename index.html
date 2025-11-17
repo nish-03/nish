@@ -634,28 +634,6 @@
                         <a href="https://iopscience.iop.org/article/10.3847/1538-4357/ad43e7" target="_blank">Journal</a>
                     </div>
                 </div>
-
-                <div style="margin-top: 40px; padding: 20px; background: rgba(74, 144, 226, 0.1); border-radius: 10px; border: 1px solid rgba(74, 144, 226, 0.3);">
-                    <h3>Publication Summary</h3>
-                    <div class="stats-grid">
-                        <div class="stat-card">
-                            <div class="stat-number">8</div>
-                            <div class="stat-label">Total Publications</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number">2</div>
-                            <div class="stat-label">First Author</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number" id="citations-count">85</div>
-                            <div class="stat-label">Citations</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number" id="h-index">5</div>
-                            <div class="stat-label">h-index</div>
-                        </div>
-                    </div>
-                </div>
             </article>
         </div>
 
@@ -674,43 +652,6 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
-        
-    <script>
-        // Google Scholar scraper
-        async function fetchScholarStats() {
-            try {
-                const scholarUrl = 'https://scholar.google.com/citations?user=AFxfecAAAAAJ&hl=en';
-                const response = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(scholarUrl)}`);
-                const html = await response.text();
-                
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(html, 'text/html');
-                
-                // Extract citations and h-index
-                const statsTable = doc.querySelector('#gsc_rsb_st');
-                if (statsTable) {
-                    const rows = statsTable.querySelectorAll('tr');
-                    if (rows.length >= 2) {
-                        const citations = rows[1].querySelectorAll('td')[1]?.textContent || '--';
-                        const hIndex = rows[2].querySelectorAll('td')[1]?.textContent || '--';
-                        
-                        document.getElementById('citations-count').textContent = citations;
-                        document.getElementById('h-index').textContent = hIndex;
-                    }
-                }
-            } catch (error) {
-                console.error('Error fetching Google Scholar stats:', error);
-                document.getElementById('citations-count').textContent = '--';
-                document.getElementById('h-index').textContent = '--';
-            }
-        }
-        
-        // Hide loader and fetch stats
-        window.addEventListener('load', function() {
-            document.getElementById('loader').style.display = 'none';
-            fetchScholarStats();
-        });
-    </script>
 
 </body>
 </html>
